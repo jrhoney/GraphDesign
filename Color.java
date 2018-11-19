@@ -5,5 +5,5 @@
  * @author Joseph Mel Rhoney and Samuel Hodges
  */
 public enum Color {
-    WHITE, GRAY, BLACK;
+    WHITE, GRAY, BLACK, PINK;
 }
