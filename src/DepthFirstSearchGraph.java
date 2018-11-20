@@ -118,11 +118,8 @@ public class DepthFirstSearchGraph implements Graph {
         source.setfTimeStamp(time);
     }  
     
-        /**
-     * 
-     * @return a text representation of the adjacency matrix that describes 
-     * the graph the method was called on
-     * 
+    /**
+     *
      * This will display a n+1 by n+1 matrix of numbers, where n is the size of
      * the graph. The first column will represent the integer number of the 
      * connecting vertex, and the first row will represent the vertex the 
@@ -173,8 +170,8 @@ public class DepthFirstSearchGraph implements Graph {
      * be labeled f TimeStamp and will be labeled
      */
     @Override
-    public String printGraphInfo(){
-        return null;
+    public void printGraphInfo(){
+
     }
     
 }

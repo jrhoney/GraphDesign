@@ -53,7 +53,7 @@ public interface Graph {
      * d time stamp of the vertex as an integer value. The last column will
      * be labeled f TimeStamp and will be 
      */
-    public String printGraphInfo();
+    public void printGraphInfo();
     
 }   
   
