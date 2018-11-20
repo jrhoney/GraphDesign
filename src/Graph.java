@@ -40,7 +40,7 @@ public interface Graph {
      * full of 0's and 1's, where 1 represents a connection and a 0 represents
      * no connection.
      */
-    public String printAdjacencyMatrix();
+    public void printAdjacencyMatrix();
     
     /**
      * 

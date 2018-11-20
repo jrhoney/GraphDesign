@@ -1,25 +1,14 @@
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
 public class Run {
 
     public static void main(String[] args) {
 
-        List<Integer>[] test = new List[3];
+        int[][] test = {{0,1,1,0,1},{1,0,1,0,0},{1,1,0,1,0},{0,0,1,0,0},{1,0,0,0,0}};
 
-        test[0] = new LinkedList<Integer>();
-        test[0].add(1);
-        test[0].add(2);
-        test[0].add(1);
-        test[0].add(2);
-        test[0].add(3);
-        test[0].add(5);
+        DepthFirstSearchGraph graph = new DepthFirstSearchGraph(test);
 
-        Iterator it = test[0].iterator();
+        graph.printAdjacencyMatrix();
 
-        while (it.hasNext()){
-            System.out.println(it.next());
-        }
+        System.out.println(test.length);
+
     }
 }

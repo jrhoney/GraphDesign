@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * November 12, 2018
@@ -33,9 +30,9 @@ public class DepthFirstSearchGraph implements Graph {
             vertexList.add(new Vertex());
         }
 
-        for(int i = 0; i < adjacencyMatrix[i].length; i++){
-            for(int j = 0; j < adjacencyMatrix.length; j++){
-                adjacencyList[i] = new LinkedList<>();
+        for(int i = 0; i < adjacencyMatrix.length; i++){
+            adjacencyList[i] = new LinkedList<>();
+            for(int j = 0; j < adjacencyMatrix[i].length; j++){
                 if(adjacencyMatrix[i][j] == 1) {
                     adjacencyList[i].add(j);
                 }
@@ -134,8 +131,34 @@ public class DepthFirstSearchGraph implements Graph {
      * no connection.
      */
     @Override
-    public String printAdjacencyMatrix(){
-        return null;
+    public void printAdjacencyMatrix(){
+        int[][] temp;
+        temp = new int[vertexList.size()][vertexList.size()];
+
+        for(int i = 0; i < adjacencyList.length; i++){
+
+            for (Object o : adjacencyList[i]) {
+                temp[i][(int) o] = 1;
+            }
+        }
+
+        //prints a blank space because the first column is also the id of vectors
+        System.out.print("  ");
+
+        //prints a row representing the vectors
+        for(int i = 0; i < adjacencyList.length; i++){
+            System.out.print((i+1) + " ");
+        }
+
+        System.out.println();
+
+        for(int i = 0; i < temp.length; i++){
+            System.out.print((i+1) + " ");
+            for(int j = 0; j < temp[i].length; j++){
+                System.out.print(temp[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
     
     /**
