@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class DepthFirstSearchGraph implements Graph {
     
     private ArrayList<Vertex> vertexList;
     private List<Integer>[] adjacencyList;
-    private int size;
+    private int size, time;
     
     /**
      * 
@@ -25,7 +26,24 @@ public class DepthFirstSearchGraph implements Graph {
      * set to the size of the input parameters length
      */
     public DepthFirstSearchGraph(int[][] adjacencyMatrix){
+        vertexList = new ArrayList<>();
+        adjacencyList = new List[adjacencyMatrix.length];
+
+        for (int[] anAdjacencyMatrix : adjacencyMatrix) {
+            vertexList.add(new Vertex());
+        }
+
+        for(int i = 0; i < adjacencyMatrix[i].length; i++){
+            for(int j = 0; j < adjacencyMatrix.length; j++){
+                adjacencyList[i] = new LinkedList<>();
+                if(adjacencyMatrix[i][j] == 1) {
+                    adjacencyList[i].add(j);
+                }
+            }
+        }
+
         size = adjacencyMatrix.length;
+        time = 0;
     }
     
     /**
@@ -35,7 +53,7 @@ public class DepthFirstSearchGraph implements Graph {
      */
     @Override
     public int size(){
-        return -1;
+        return vertexList.size();
     }
     
     /**
@@ -44,7 +62,7 @@ public class DepthFirstSearchGraph implements Graph {
      */
     @Override
     public boolean isEmpty(){
-        return true;
+        return this.size == 0;
     }
      
     /**
@@ -54,7 +72,7 @@ public class DepthFirstSearchGraph implements Graph {
      * vertex that is 
      */
     public LinkedList getEdges(Vertex v){
-        return null;
+        return (LinkedList) adjacencyList[vertexList.indexOf(v)];
     }
     
     /**
@@ -67,7 +85,16 @@ public class DepthFirstSearchGraph implements Graph {
      */
     @Override
     public void DFS(){
-        
+        for(Vertex v : vertexList){
+            v.setColor(Color.WHITE);
+            v.setParent(null);
+        }
+        time = 0;
+        for(Vertex v : vertexList){
+            if(v.getColor() == Color.WHITE){
+                DFSVisit(v);
+            }
+        }
     }
     
     /**
@@ -77,7 +104,21 @@ public class DepthFirstSearchGraph implements Graph {
      * by the DFS method.
      */
     private void DFSVisit(Vertex source){
-        
+        time++;
+        source.setdTimeStamp(time);
+        source.setColor(Color.GRAY);
+
+        Iterator it = getEdges(source).iterator();
+
+        while(it.hasNext()){
+            if (vertexList.get((Integer) it.next()).getColor() == Color.WHITE){
+                vertexList.get((Integer) it.next()).setParent(source);
+                DFSVisit(vertexList.get((Integer) it.next()));
+            }
+        }
+        source.setColor(Color.BLACK);
+        time++;
+        source.setfTimeStamp(time);
     }  
     
         /**
