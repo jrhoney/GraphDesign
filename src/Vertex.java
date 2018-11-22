@@ -97,5 +97,13 @@ public class Vertex {
     public Color getColor() {
         return color;
     }
-    
+
+    @Override
+    public String toString() {
+        return "{" +
+                "color=" + color +
+                ", dTimeStamp=" + dTimeStamp +
+                ", fTimeStamp=" + fTimeStamp +
+                '}';
+    }
 }

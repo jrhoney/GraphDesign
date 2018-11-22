@@ -1,14 +1,19 @@
 public class Run {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        int[][] test = {{0,1,1,0,1},{1,0,1,0,0},{1,1,0,1,0},{0,0,1,0,0},{1,0,0,0,0}};
+    int[][] test = {
+      {0, 1, 1, 0, 1}, {1, 0, 1, 0, 0}, {1, 1, 0, 1, 0}, {0, 0, 1, 0, 0}, {1, 0, 0, 0, 0}
+    };
 
-        DepthFirstSearchGraph graph = new DepthFirstSearchGraph(test);
+    DepthFirstSearchGraph graph = new DepthFirstSearchGraph(test);
 
-        graph.printAdjacencyMatrix();
+    graph.printAdjacencyMatrix();
+    System.out.println();
+    graph.printGraphInfo();
 
-        System.out.println(test.length);
-
-    }
+    graph.DFS();
+    System.out.println();
+    graph.printGraphInfo();
+  }
 }
