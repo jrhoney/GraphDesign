@@ -14,7 +14,7 @@ public interface Graph {
     public int size();
     /**
      * 
-     * @return true, if this graph has no elements; false, otherwise. 
+     * @return true, if this graph has no nodes; false, otherwise.
      */
     public boolean isEmpty();
   

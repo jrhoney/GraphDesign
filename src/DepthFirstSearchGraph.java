@@ -49,7 +49,7 @@ public class DepthFirstSearchGraph implements Graph {
     return vertexList.size();
   }
 
-  /** @return true, if this graph has no elements; false, otherwise. */
+  /** @return true, if this graph has no nodes; false, otherwise. */
   @Override
   public boolean isEmpty() {
     return this.size == 0;
