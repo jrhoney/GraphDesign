@@ -59,7 +59,7 @@ public class DepthFirstSearchGraph implements Graph {
    * @param v the vertex whose edges are being requested
    * @return a linked list of other vertices that are connected to the vertex that is
    */
-  public LinkedList getEdges(Vertex v) {
+  private LinkedList getEdges(Vertex v) {
     return (LinkedList) adjacencyList[vertexList.indexOf(v)];
   }
 
